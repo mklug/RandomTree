@@ -23,11 +23,15 @@ def ordered_add_parents(root: OrderedNode) -> OrderedNode:
     return root
 
 
-def binary_tree_to_ordered_tree(root: BinaryNode) -> OrderedNode:
+def binary_tree_to_ordered_tree(root: Optional[BinaryNode]) -> OrderedNode:
     '''Converts a binary tree into an ordered tree with one more node.
 
     Follows the inverse of the LC-RS transformation.  
     '''
+
+    if root is None:
+        return OrderedNode()
+    
     # Get the rows.
     bin_rows = []
     new_root = BinaryNode(left=root)
